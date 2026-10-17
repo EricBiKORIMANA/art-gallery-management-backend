@@ -34,7 +34,7 @@ public class ArtStyleController {
         String result = artStyleServ.saveArtStyle(artStyle);
 
         if (result.equals("Art style saved successfully")) {
-            return new ResponseEntity<>(result, HttpStatus.OK);
+            return new ResponseEntity<>(result, HttpStatus.CREATED);
         } else{
             return new ResponseEntity<>("Failed to save art style", HttpStatus.CONFLICT);
         }
