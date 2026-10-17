@@ -9,5 +9,6 @@ import com.kigali.gallery.model.Artist;
 
 @Repository 
 public interface ArtistRepository extends JpaRepository<Artist, UUID>{
-    
+
+    boolean existsByArtistCode(String artistCode);
 }
