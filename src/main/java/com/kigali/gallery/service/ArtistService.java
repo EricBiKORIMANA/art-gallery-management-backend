@@ -84,4 +84,8 @@ public class ArtistService {
         artistRepo.deleteById(id);
         return "Artist deleted successfully";
     }
+
+    public List<Artist> findArtistsByLastName(String lastName) {
+        return artistRepo.findByLastNameIgnoreCaseOrderByFirstNameAsc(lastName);
+    }
 }

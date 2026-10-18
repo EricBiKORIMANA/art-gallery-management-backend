@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kigali.gallery.model.Artist;
@@ -73,5 +74,11 @@ public class ArtistController {
         } else{
             return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
         } 
+    }
+
+
+    @GetMapping("/by-last-name")
+    public ResponseEntity<List<Artist>> getByLastName(@RequestParam String lastName) {
+        return new ResponseEntity<>(artistServ.findArtistsByLastName(lastName), HttpStatus.OK);
     }
 }
