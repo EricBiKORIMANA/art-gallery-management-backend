@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kigali.gallery.model.Artist;
+import com.kigali.gallery.model.BookingStatus;
 import com.kigali.gallery.model.Curator;
 import com.kigali.gallery.model.ExhibitionBooking;
 import com.kigali.gallery.repository.ArtistRepository;
@@ -97,5 +98,9 @@ public class ExhibitionBookingService {
         }
         exhibitionBookingRepo.deleteById(id);
         return "Exhibition booking deleted successfully";
+    }
+
+    public List<ExhibitionBooking> findBookingsByStatus(BookingStatus status) {
+        return exhibitionBookingRepo.findByStatusOrderByExhibitionDateAsc(status);
     }
 }

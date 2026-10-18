@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kigali.gallery.model.BookingStatus;
 import com.kigali.gallery.model.ExhibitionBooking;
 import com.kigali.gallery.service.ExhibitionBookingService;
 
@@ -77,5 +79,10 @@ public class ExhibitionBookingController {
         } else{
             return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
         } 
+    }
+
+    @GetMapping("/by-status")
+    public ResponseEntity<List<ExhibitionBooking>> getByStatus(@RequestParam BookingStatus status) {
+        return new ResponseEntity<>(exhibitionBookingServ.findBookingsByStatus(status), HttpStatus.OK);
     }
 }
