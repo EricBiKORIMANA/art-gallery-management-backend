@@ -51,4 +51,8 @@ public class ArtStyleService {
         artStyleRepo.deleteById(id);
         return "Art style deleted successfully";
     }
+
+    public List<ArtStyle> findUnusedArtStyles() {
+        return artStyleRepo.findUnusedArtStyles();
+    }
 }

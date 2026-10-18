@@ -77,4 +77,10 @@ public class ArtStyleController {
             return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
         } 
     }
+
+    @GetMapping("/unused")
+    public ResponseEntity<?> getUnusedArtStyles() {
+        List<ArtStyle> result = artStyleServ.findUnusedArtStyles();
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
 }
