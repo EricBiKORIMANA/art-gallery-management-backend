@@ -94,4 +94,8 @@ public class CuratorService {
         curatorRepo.deleteById(id);
         return "Curator deleted successfully";
     }
+
+    public List<Curator> findCuratorsByArtStyleName(String name) {
+        return curatorRepo.findCuratorsByArtStyleName(name);
+    }
 }

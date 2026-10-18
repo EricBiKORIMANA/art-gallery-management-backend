@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kigali.gallery.model.ArtStyle;
@@ -79,5 +80,11 @@ public class CuratorController {
         } else{
             return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
         } 
+    }
+
+    @GetMapping("/by-art-style")
+    public ResponseEntity<?> getByArtStyle(@RequestParam String name) {
+        List<Curator> result = curatorServ.findCuratorsByArtStyleName(name);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }
