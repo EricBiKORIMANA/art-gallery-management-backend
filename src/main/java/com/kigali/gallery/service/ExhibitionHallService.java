@@ -56,4 +56,8 @@ public class ExhibitionHallService {
         exhibitionHallRepo.deleteById(id);
         return "Exhibition hall deleted successfully";
     }
+
+    public List<ExhibitionHall> findFreeExhibitionHalls() {
+        return exhibitionHallRepo.findFreeExhibitionHalls();
+    }
 }
