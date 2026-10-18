@@ -54,7 +54,7 @@ public class ExhibitionHallController {
     }
     
     @PutMapping("update/{id}")
-    public ResponseEntity<?> updateArtStyle(@PathVariable UUID id, @RequestBody ExhibitionHall exhibitionHall){
+    public ResponseEntity<?> updateExhibitionBooking(@PathVariable UUID id, @RequestBody ExhibitionHall exhibitionHall){
         String result = exhibitionHallServ.updateExhibitionHall(id, exhibitionHall);
 
         if(result.equals("Exhibition hall updated successfully")){
