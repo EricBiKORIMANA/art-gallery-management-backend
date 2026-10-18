@@ -1,5 +1,6 @@
 package com.kigali.gallery.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -102,5 +103,9 @@ public class ExhibitionBookingService {
 
     public List<ExhibitionBooking> findBookingsByStatus(BookingStatus status) {
         return exhibitionBookingRepo.findByStatusOrderByExhibitionDateAsc(status);
+    }
+
+    public List<ExhibitionBooking> findBookingsBetweenDates(LocalDate start, LocalDate end) {
+        return exhibitionBookingRepo.findByExhibitionDateBetweenOrderByExhibitionDateAsc(start, end);
     }
 }

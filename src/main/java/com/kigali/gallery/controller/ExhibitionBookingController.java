@@ -1,5 +1,6 @@
 package com.kigali.gallery.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -84,5 +85,13 @@ public class ExhibitionBookingController {
     @GetMapping("/by-status")
     public ResponseEntity<List<ExhibitionBooking>> getByStatus(@RequestParam BookingStatus status) {
         return new ResponseEntity<>(exhibitionBookingServ.findBookingsByStatus(status), HttpStatus.OK);
+    }
+
+    @GetMapping("/between")
+    public ResponseEntity<List<ExhibitionBooking>> getBetween(@RequestParam String start, @RequestParam String end) {
+        LocalDate startDate = LocalDate.parse(start);
+        LocalDate endDate = LocalDate.parse(end);
+
+        return new ResponseEntity<>(exhibitionBookingServ.findBookingsBetweenDates(startDate, endDate), HttpStatus.OK);
     }
 }

@@ -1,5 +1,6 @@
 package com.kigali.gallery.repository;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -13,4 +14,5 @@ import com.kigali.gallery.model.ExhibitionBooking;
 public interface ExhibitionBookingRepository extends JpaRepository<ExhibitionBooking, UUID>{
     
     List<ExhibitionBooking> findByStatusOrderByExhibitionDateAsc(BookingStatus status);
+    List<ExhibitionBooking> findByExhibitionDateBetweenOrderByExhibitionDateAsc(LocalDate startDate, LocalDate endDate);
 }
