@@ -1,6 +1,7 @@
 package com.kigali.gallery.service;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -40,5 +41,9 @@ public class DisplayedArtworkService {
 
         displayedArtworkRepo.save(artwork);
         return "Displayed artwork saved successfully";
+    }
+
+    public List<DisplayedArtwork> getArtworksByArtistCode(String artistCode) {
+        return displayedArtworkRepo.findByArtistCode(artistCode);
     }
 }
