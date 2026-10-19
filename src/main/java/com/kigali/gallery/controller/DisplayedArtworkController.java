@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,5 +42,16 @@ public class DisplayedArtworkController {
     public ResponseEntity<List<DisplayedArtwork>> getArtworksByArtistCode(@PathVariable String artistCode) {
         List<DisplayedArtwork> artworks = displayedArtworkServ.getArtworksByArtistCode(artistCode);
         return new ResponseEntity<>(artworks, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> delete(@PathVariable UUID id) {
+        String result = displayedArtworkServ.deleteDisplayedArtwork(id);
+
+        if (result.equals("The displayed artwork with that id does not exist")) {
+            return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
+        } else{
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        }
     }
 }

@@ -14,6 +14,7 @@ import com.kigali.gallery.model.Curator;
 import com.kigali.gallery.model.ExhibitionBooking;
 import com.kigali.gallery.repository.ArtistRepository;
 import com.kigali.gallery.repository.CuratorRepository;
+import com.kigali.gallery.repository.DisplayedArtworkRepository;
 import com.kigali.gallery.repository.ExhibitionBookingRepository;
 
 @Service 
@@ -27,6 +28,9 @@ public class ExhibitionBookingService {
 
     @Autowired
     private CuratorRepository curatorRepo;
+
+    @Autowired
+    private DisplayedArtworkRepository displayedArtworkRepo;
 
     public String saveExhibitionBooking(ExhibitionBooking booking) {
         if (booking.getExhibitionDate() == null) {
@@ -141,6 +145,11 @@ public class ExhibitionBookingService {
         if (!exhibitionBookingRepo.existsById(id)) {
             return "The exhibition booking with that id does not exist";
         }
+        boolean hasArtworks = displayedArtworkRepo.existsByExhibitionBookingId(id);
+        if (hasArtworks) {
+            return "That exhibition booking has displayed artworks, delete them first";
+        }
+
         exhibitionBookingRepo.deleteById(id);
         return "Exhibition booking deleted successfully";
     }

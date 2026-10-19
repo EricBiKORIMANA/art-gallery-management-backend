@@ -46,4 +46,13 @@ public class DisplayedArtworkService {
     public List<DisplayedArtwork> getArtworksByArtistCode(String artistCode) {
         return displayedArtworkRepo.findByArtistCode(artistCode);
     }
+
+    public String deleteDisplayedArtwork(UUID id) {
+        if (!displayedArtworkRepo.existsById(id)) {
+            return "The displayed artwork with that id does not exist";
+        }
+
+        displayedArtworkRepo.deleteById(id);
+        return "Displayed artwork deleted successfully";
+    }
 }

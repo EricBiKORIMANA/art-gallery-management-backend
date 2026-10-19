@@ -95,6 +95,8 @@ public class ExhibitionBookingController {
 
         if (result.equals("Exhibition booking deleted successfully")) {
             return new ResponseEntity<>(result, HttpStatus.OK);
+        } else if(result.equals("That exhibition booking has displayed artworks, delete them first")){
+            return new ResponseEntity<>(result, HttpStatus.CONFLICT);
         } else{
             return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
         } 
