@@ -9,12 +9,16 @@ import org.springframework.stereotype.Service;
 
 import com.kigali.gallery.model.Artist;
 import com.kigali.gallery.repository.ArtistRepository;
+import com.kigali.gallery.repository.CuratorRepository;
 
 @Service 
 public class ArtistService {
     
     @Autowired
     private ArtistRepository artistRepo;
+
+    @Autowired
+    private CuratorRepository curatorRepo;
 
     public String saveArtist(Artist artist) {
         if (artist.getArtistCode() == null) {
@@ -87,5 +91,12 @@ public class ArtistService {
 
     public List<Artist> findArtistsByLastName(String lastName) {
         return artistRepo.findByLastNameIgnoreCaseOrderByFirstNameAsc(lastName);
+    }
+
+    public List<Artist> findArtistsByCuratorId(UUID curatorId) {
+        if (!curatorRepo.existsById(curatorId)) {
+            return null;
+        }
+        return artistRepo.findArtistsByCuratorId(curatorId);
     }
 }

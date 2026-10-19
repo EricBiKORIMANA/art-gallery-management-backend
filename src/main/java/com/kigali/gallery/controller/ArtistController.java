@@ -81,4 +81,15 @@ public class ArtistController {
     public ResponseEntity<List<Artist>> getByLastName(@RequestParam String lastName) {
         return new ResponseEntity<>(artistServ.findArtistsByLastName(lastName), HttpStatus.OK);
     }
+
+    @GetMapping("/of-curator/{curatorId}")
+    public ResponseEntity<?> getArtistsOfCurator(@PathVariable UUID curatorId) {
+        List<Artist> result = artistServ.findArtistsByCuratorId(curatorId);
+
+        if (result == null) {
+            return new ResponseEntity<>("The curator with that id does not exist", HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        }
+    }
 }
