@@ -29,6 +29,13 @@ public class ExhibitionBookingService {
     private CuratorRepository curatorRepo;
 
     public String saveExhibitionBooking(ExhibitionBooking booking) {
+        if (booking.getExhibitionDate() == null) {
+            return "Exhibition date is required";
+        }
+        if (booking.getExhibitionDate() != null && booking.getExhibitionDate().isBefore(LocalDate.now())) {
+            return "Exhibition booking date cannot be in the past";
+        }
+
         if (booking.getArtist() != null && booking.getArtist().getId() != null) {
             Optional<Artist> artistOptional = artistRepo.findById(booking.getArtist().getId());
             if (artistOptional.isEmpty()) {
@@ -43,8 +50,16 @@ public class ExhibitionBookingService {
                 return "The curator with that id does not exist";
             }
             booking.setCurator(curatorOptional.get());
+
+            boolean isConflict = exhibitionBookingRepo.existsByCuratorIdAndExhibitionDateAndStatusNot(curatorOptional.get().getId(), booking.getExhibitionDate(), BookingStatus.DECLINED);
+
+            if (isConflict) {
+                return "Curator already hosts an exhibition on that date";
+            }
         }
 
+        booking.setStatus(BookingStatus.PROPOSED);
+        
         exhibitionBookingRepo.save(booking);
         return "Exhibition booking saved successfully";
     }

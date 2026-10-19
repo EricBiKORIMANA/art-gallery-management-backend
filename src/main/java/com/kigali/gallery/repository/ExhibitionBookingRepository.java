@@ -15,4 +15,5 @@ public interface ExhibitionBookingRepository extends JpaRepository<ExhibitionBoo
     
     List<ExhibitionBooking> findByStatusOrderByExhibitionDateAsc(BookingStatus status);
     List<ExhibitionBooking> findByExhibitionDateBetweenOrderByExhibitionDateAsc(LocalDate startDate, LocalDate endDate);
+    boolean existsByCuratorIdAndExhibitionDateAndStatusNot(UUID curatorId, LocalDate exhibitionDate, BookingStatus status);
 }

@@ -39,8 +39,12 @@ public class ExhibitionBookingController {
             return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
         } else if(result.equals("The curator with that id does not exist")){
             return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
+        } else if(result.equals("Curator already hosts an exhibition on that date")){
+            return new ResponseEntity<>(result, HttpStatus.CONFLICT);
+        } else if(result.equals("Exhibition booking date cannot be in the past")){
+            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }else{
-            return new ResponseEntity<>("Failed to save Exhibition Booking", HttpStatus.CONFLICT);
+            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
         }
     }
 
