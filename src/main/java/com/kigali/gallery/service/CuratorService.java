@@ -122,4 +122,28 @@ public class CuratorService {
 
         return "Art style added to the curator";
     }
+
+    public String updateCuratorExhibitionHall(UUID curatorId, int hallNumber) {
+        Optional<Curator> curatorOptional = curatorRepo.findById(curatorId);
+        if (curatorOptional.isEmpty()) {
+            return "The curator with that id does not exist";
+        }
+
+        Optional<ExhibitionHall> hallOptional = exhibitionHallRepo.findByHallNumber(hallNumber);
+        if (hallOptional.isEmpty()) {
+            return "The exhibition hall with that hallNumber does not exist";
+        }
+
+        Curator curator = curatorOptional.get();
+        ExhibitionHall newHall = hallOptional.get();
+
+        boolean isTaken = curatorRepo.existsByExhibitionHallAndIdNot(newHall, curatorId);
+        if (isTaken) {
+            return "That exhibition hall is taken by another curator";
+        }
+
+        curator.setExhibitionHall(newHall);
+        curatorRepo.save(curator);
+        return "Exhibition hall changed successfully";
+    }
 }

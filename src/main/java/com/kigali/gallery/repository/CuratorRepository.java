@@ -9,10 +9,13 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.kigali.gallery.model.Curator;
+import com.kigali.gallery.model.ExhibitionHall;
 
 @Repository 
 public interface CuratorRepository extends JpaRepository<Curator, UUID>{
     
     @Query("SELECT c FROM Curator c JOIN c.artStyles s WHERE LOWER(s.name) = LOWER(:name)")
     List<Curator> findCuratorsByArtStyleName(@Param("name") String name);
+
+    boolean existsByExhibitionHallAndIdNot(ExhibitionHall exhibitionHall, UUID curatorId);
 }
