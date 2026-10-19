@@ -108,6 +108,35 @@ public class ExhibitionBookingService {
         return "Exhibition booking updated successfully";
     }
 
+    public String updateBookingStatus(UUID id, BookingStatus newStatus) {
+        Optional<ExhibitionBooking> bookingOptional = exhibitionBookingRepo.findById(id);
+        if (bookingOptional.isEmpty()) {
+            return "The exhibition booking with that id does not exist";
+        }
+
+        ExhibitionBooking booking = bookingOptional.get();
+        BookingStatus currentStatus = booking.getStatus();
+
+        boolean isValid = false;
+        if (currentStatus == BookingStatus.PROPOSED) {
+            if (newStatus == BookingStatus.ACCEPTED || newStatus == BookingStatus.DECLINED) {
+                isValid = true;
+            }
+        } else if (currentStatus == BookingStatus.ACCEPTED) {
+            if (newStatus == BookingStatus.EXHIBITED || newStatus == BookingStatus.DECLINED) {
+                isValid = true;
+            }
+        }
+
+        if (!isValid) {
+            return "Cannot change status from " + currentStatus + " to " + newStatus;
+        }
+
+        booking.setStatus(newStatus);
+        exhibitionBookingRepo.save(booking);
+        return "Exhibition booking status updated successfully";
+    }
+
     public String deleteExhibitionBooking(UUID id) {
         if (!exhibitionBookingRepo.existsById(id)) {
             return "The exhibition booking with that id does not exist";
