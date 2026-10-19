@@ -87,4 +87,19 @@ public class CuratorController {
         List<Curator> result = curatorServ.findCuratorsByArtStyleName(name);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
+
+    @PutMapping("/{curatorId}/art-styles/{artStyleId}")
+    public ResponseEntity<?> addArtStyle(@PathVariable UUID curatorId, @PathVariable UUID artStyleId) {
+        String result = curatorServ.addArtStyleToCurator(curatorId, artStyleId);
+
+        if (result.equals("The curator with that id does not exist")) {
+            return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
+        } else if(result.equals("That art style does not exist")){
+            return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
+        } else if (result.equals("The curator already has that art style")) {
+            return new ResponseEntity<>(result, HttpStatus.CONFLICT);
+        } else{
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        }
+    }
 }

@@ -98,4 +98,28 @@ public class CuratorService {
     public List<Curator> findCuratorsByArtStyleName(String name) {
         return curatorRepo.findCuratorsByArtStyleName(name);
     }
+
+    public String addArtStyleToCurator(UUID curatorId, UUID artStyleId) {
+        Optional<Curator> curatorOptional = curatorRepo.findById(curatorId);
+        if (curatorOptional.isEmpty()) {
+            return "The curator with that id does not exist";
+        }
+
+        Optional<ArtStyle> styleOptional = artStyleRepo.findById(artStyleId);
+        if (styleOptional.isEmpty()) {
+            return "That art style does not exist";
+        }
+
+        Curator curator = curatorOptional.get();
+        ArtStyle style = styleOptional.get();
+
+        if (curator.getArtStyles().contains(style)) {
+            return "The curator already has that art style";
+        }
+
+        curator.getArtStyles().add(style);
+        curatorRepo.save(curator);
+
+        return "Art style added to the curator";
+    }
 }
