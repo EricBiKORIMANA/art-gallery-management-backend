@@ -161,4 +161,8 @@ public class ExhibitionBookingService {
     public List<ExhibitionBooking> findBookingsBetweenDates(LocalDate start, LocalDate end) {
         return exhibitionBookingRepo.findByExhibitionDateBetweenOrderByExhibitionDateAsc(start, end);
     }
+
+    public List<Object[]> getBookingStatsByStatus() {
+        return exhibitionBookingRepo.countBookingsByStatus();
+    }
 }

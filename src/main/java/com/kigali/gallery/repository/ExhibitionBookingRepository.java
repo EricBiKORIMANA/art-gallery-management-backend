@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.kigali.gallery.model.BookingStatus;
@@ -16,4 +17,6 @@ public interface ExhibitionBookingRepository extends JpaRepository<ExhibitionBoo
     List<ExhibitionBooking> findByStatusOrderByExhibitionDateAsc(BookingStatus status);
     List<ExhibitionBooking> findByExhibitionDateBetweenOrderByExhibitionDateAsc(LocalDate startDate, LocalDate endDate);
     boolean existsByCuratorIdAndExhibitionDateAndStatusNot(UUID curatorId, LocalDate exhibitionDate, BookingStatus status);
+    @Query("SELECT b.status, COUNT(b) FROM ExhibitionBooking b GROUP BY b.status")
+    List<Object[]> countBookingsByStatus();
 }

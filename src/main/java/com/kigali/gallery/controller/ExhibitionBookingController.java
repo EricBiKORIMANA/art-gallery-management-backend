@@ -114,4 +114,10 @@ public class ExhibitionBookingController {
 
         return new ResponseEntity<>(exhibitionBookingServ.findBookingsBetweenDates(startDate, endDate), HttpStatus.OK);
     }
+
+    @GetMapping("/stats/by-status")
+    public ResponseEntity<?> getStatsByStatus() {
+        List<Object[]> result = exhibitionBookingServ.getBookingStatsByStatus();
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
 }
