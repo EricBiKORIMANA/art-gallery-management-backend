@@ -6,6 +6,9 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -127,5 +130,12 @@ public class ExhibitionBookingController {
         String result = exhibitionBookingServ.cancelDayForCurator(curatorId, parsedDate);
 
         return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @GetMapping("/page")
+    public ResponseEntity<Page<ExhibitionBooking>> getBookingsPaginated(
+            @PageableDefault(page = 0, size = 10, sort = "exhibitionDate") Pageable pageable) {
+        Page<ExhibitionBooking> pageResult = exhibitionBookingServ.getBookingsPaginated(pageable);
+        return ResponseEntity.ok(pageResult);
     }
 }

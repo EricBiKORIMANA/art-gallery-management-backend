@@ -6,6 +6,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.kigali.gallery.model.Artist;
@@ -172,5 +174,9 @@ public class ExhibitionBookingService {
     public String cancelDayForCurator(UUID curatorId, LocalDate date) {
         int updatedCount = exhibitionBookingRepo.cancelBookingsForCuratorOnDate(curatorId, date, BookingStatus.DECLINED, BookingStatus.EXHIBITED);
         return updatedCount + " exhibition bookings cancelled";
+    }
+
+    public Page<ExhibitionBooking> getBookingsPaginated(Pageable pageable) {
+        return exhibitionBookingRepo.findAll(pageable); 
     }
 }
