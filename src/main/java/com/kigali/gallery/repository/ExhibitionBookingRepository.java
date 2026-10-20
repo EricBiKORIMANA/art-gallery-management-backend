@@ -25,4 +25,7 @@ public interface ExhibitionBookingRepository extends JpaRepository<ExhibitionBoo
     @Modifying
     @Query("UPDATE ExhibitionBooking e SET e.status = :declinedStatus WHERE e.curator.id = :curatorId AND e.exhibitionDate = :date AND e.status <> :exhibitedStatus")
     int cancelBookingsForCuratorOnDate(@Param("curatorId") UUID curatorId, @Param("date") LocalDate date, @Param("declinedStatus") BookingStatus declinedStatus, @Param("exhibitedStatus") BookingStatus exhibitedStatus);
+
+    long countByExhibitionDate(LocalDate exhibitionDate);
+    long countByStatus(BookingStatus status);
 }
