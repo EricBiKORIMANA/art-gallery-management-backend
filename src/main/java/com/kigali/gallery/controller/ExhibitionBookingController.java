@@ -120,4 +120,12 @@ public class ExhibitionBookingController {
         List<Object[]> result = exhibitionBookingServ.getBookingStatsByStatus();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
+
+    @PatchMapping("/cancel-day")
+    public ResponseEntity<?> cancelDay(@RequestParam UUID curatorId, @RequestParam String date) {
+        LocalDate parsedDate = LocalDate.parse(date);
+        String result = exhibitionBookingServ.cancelDayForCurator(curatorId, parsedDate);
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
 }

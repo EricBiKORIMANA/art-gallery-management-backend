@@ -17,6 +17,8 @@ import com.kigali.gallery.repository.CuratorRepository;
 import com.kigali.gallery.repository.DisplayedArtworkRepository;
 import com.kigali.gallery.repository.ExhibitionBookingRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service 
 public class ExhibitionBookingService {
     
@@ -164,5 +166,11 @@ public class ExhibitionBookingService {
 
     public List<Object[]> getBookingStatsByStatus() {
         return exhibitionBookingRepo.countBookingsByStatus();
+    }
+
+    @Transactional
+    public String cancelDayForCurator(UUID curatorId, LocalDate date) {
+        int updatedCount = exhibitionBookingRepo.cancelBookingsForCuratorOnDate(curatorId, date, BookingStatus.DECLINED, BookingStatus.EXHIBITED);
+        return updatedCount + " exhibition bookings cancelled";
     }
 }
