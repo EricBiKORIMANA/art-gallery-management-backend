@@ -1,0 +1,1102 @@
+{
+  "info": {
+    "_postman_id": "59abfc99-f2e3-4440-a98a-923cae90253f",
+    "name": "art-gallery-management",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49838069",
+    "_collection_link": "https://go.postman.co/collection/49838069-59abfc99-f2e3-4440-a98a-923cae90253f?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "ArtStyle",
+      "item": [
+        {
+          "name": "A2 Post save Art Style",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Painting\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/api/art-styles/save",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "art-styles",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Get all Art Styles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/art-styles/all",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "art-styles",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Get by Art Style Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/art-styles/3d534755-d10a-4992-82da-c9aa9a3a96ca",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "art-styles",
+                "3d534755-d10a-4992-82da-c9aa9a3a96ca"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Update by Art Style Id",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"k\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/api/art-styles/update/3d534755-d10a-4992-82da-c9aa9a3a96c",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "art-styles",
+                "update",
+                "3d534755-d10a-4992-82da-c9aa9a3a96c"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Delete by Art Style Id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/art-styles/delete/3d534755-d10a-4992-82da-c9aa9a3a96cd",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "art-styles",
+                "delete",
+                "3d534755-d10a-4992-82da-c9aa9a3a96cd"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "C3 Get Art styles nobody holds",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/art-styles/unused",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "art-styles",
+                "unused"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Artist",
+      "item": [
+        {
+          "name": "A2 Post save Artist",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"Joseph\",\n    \"lastName\": \"Nkurunziza\",\n    \"email\": \"joseph@art.com\",\n    \"phone\": \"0788923121\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/api/artists/save",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "artists",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Get all Artist",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/artists/all",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "artists",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Get by Artist",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/artists/34f4b91a-c1f1-466a-8420-431daa61166a",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "artists",
+                "34f4b91a-c1f1-466a-8420-431daa61166a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Update by Artist",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"Mike\",\n    \"lastName\": \"Mugenzi\",\n    \"email\": \"mike@art.com\",\n    \"phone\": \"078231212\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/api/artists/update/67da91bf-cabc-4f97-8ada-0c39596f8193",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "artists",
+                "update",
+                "67da91bf-cabc-4f97-8ada-0c39596f8193"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Delete by Artist",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/artists/delete/31a76023-91f6-40ce-98fb-d21bc1444083",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "artists",
+                "delete",
+                "31a76023-91f6-40ce-98fb-d21bc1444083"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "B1 Find artists by lastName",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/artists/by-last-name?lastName=nkurunziza",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "artists",
+                "by-last-name"
+              ],
+              "query": [
+                {
+                  "key": "lastName",
+                  "value": "nkurunziza"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "C4 Get Artists of a curator",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/artists/of-curator/37ca2e7e-7d31-437c-b100-45fe8a57429f",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "artists",
+                "of-curator",
+                "37ca2e7e-7d31-437c-b100-45fe8a57429f"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Curator",
+      "item": [
+        {
+          "name": "A2 Post save Curator",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"Luc\",\n    \"lastName\": \"Mugisha\",\n    \"email\": \"luc@gallery.com\",\n    \"exhibitionHall\": {\n    \"id\": \"41a94fe7-6be5-44d3-b361-6e92460f2e18\"\n    },\n    \"artStyles\": [\n    { \"id\": \"dad2698d-31b5-43b6-8ae4-d5ae02403c0d\" },\n    { \"id\": \"8a8762ae-7643-4db5-907e-a7a74c89747c\"}\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/api/curators/save",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "curators",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Get all Curator",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/curators/all",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "curators",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Get by Curator",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/curators/3d534755-d10a-4992-82da-c9aa9a3a96ca",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "curators",
+                "3d534755-d10a-4992-82da-c9aa9a3a96ca"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Update by Curator",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"Mike\",\n    \"lastName\": \"Rugwiro\",\n    \"email\": \"mike@gallery.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/api/curators/update/4d74a0f8-5c74-4348-aa4c-9db75d362b56",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "curators",
+                "update",
+                "4d74a0f8-5c74-4348-aa4c-9db75d362b56"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Delete by Curator",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/curators/delete/3d534755-d10a-4992-82da-c9aa9a3a96cd",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "curators",
+                "delete",
+                "3d534755-d10a-4992-82da-c9aa9a3a96cd"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "C1 Get Curators by art style name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/curators/by-art-style?name=painting",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "curators",
+                "by-art-style"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "painting"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D3 Put art style to curator",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/curators/e65e738d-7c0b-4f3f-958d-ebe25d56808f/art-styles/78d3f8ca-0532-4cd1-abd5-f21e16e40a33",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "curators",
+                "e65e738d-7c0b-4f3f-958d-ebe25d56808f",
+                "art-styles",
+                "78d3f8ca-0532-4cd1-abd5-f21e16e40a33"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D4 Patch move a curator to another exhibition hall",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/curators/e65e738d-7c0b-4f3f-958d-ebe25d56808f/exhibition-hall?hallNumber=1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "curators",
+                "e65e738d-7c0b-4f3f-958d-ebe25d56808f",
+                "exhibition-hall"
+              ],
+              "query": [
+                {
+                  "key": "hallNumber",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ExhibitionBooking",
+      "item": [
+        {
+          "name": "A2 Post Exhibition Booking",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"exhibitionDate\": \"2026-11-29\",\n  \"theme\": \"Landscape\",\n  \"status\": \"PROPOSED\",\n  \"artist\": { \"id\": \"9ad87136-bdf0-4242-ab16-ba096ded394c\" },\n  \"curator\": { \"id\": \"37ca2e7e-7d31-437c-b100-45fe8a57429f\" }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/api/exhibition-bookings/save",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-bookings",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Get all Exhibition Booking",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/exhibition-bookings/all",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-bookings",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Get by Exhibition Booking Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/exhibition-bookings/63c2b7db-0073-4414-8b3e-e86f861968cd",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-bookings",
+                "63c2b7db-0073-4414-8b3e-e86f861968cd"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Update by Exhibition Booking",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Scupture hall\"   \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/api/exhibition-bookings/update/92b494bf-a1b7-4fbc-aee5-e70a599bed2e",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-bookings",
+                "update",
+                "92b494bf-a1b7-4fbc-aee5-e70a599bed2e"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Delete by Exhibition Booking",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/exhibition-bookings/delete/6be69812-43f7-412e-9d37-ef82cfa22dc2",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-bookings",
+                "delete",
+                "6be69812-43f7-412e-9d37-ef82cfa22dc2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "B2 Get Exhibition bookings by status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/exhibition-bookings/by-status?status=PROPOSED",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-bookings",
+                "by-status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "PROPOSED"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "B3 Get Exhibition bookings in a date range",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/exhibition-bookings/between?start=2026-01-01&end=2026-12-31",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-bookings",
+                "between"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "2026-01-01"
+                },
+                {
+                  "key": "end",
+                  "value": "2026-12-31"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D1 Post Exhibition Booking",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"exhibitionDate\": \"2026-01-29\",\n  \"theme\": \"Landscape\",\n  \"status\": \"DECLINED\",\n  \"artist\": { \"id\": \"9ad87136-bdf0-4242-ab16-ba096ded394c\" },\n  \"curator\": { \"id\": \"37ca2e7e-7d31-437c-b100-45fe8a57429f\" }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/api/exhibition-bookings/save",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-bookings",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D2 Patch status flow",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/exhibition-bookings/c15988e3-be47-490a-b403-4363c011543c/status?status=ACCEPTED",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-bookings",
+                "c15988e3-be47-490a-b403-4363c011543c",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "ACCEPTED"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "F1 Get Exhibition bookings per status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/exhibition-bookings/stats/by-status",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-bookings",
+                "stats",
+                "by-status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "F2 Patch Curator is absent",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/exhibition-bookings/cancel-day?curatorId=37ca2e7e-7d31-437c-b100-45fe8a57429f&date=2026-11-28",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-bookings",
+                "cancel-day"
+              ],
+              "query": [
+                {
+                  "key": "curatorId",
+                  "value": "37ca2e7e-7d31-437c-b100-45fe8a57429f"
+                },
+                {
+                  "key": "date",
+                  "value": "2026-11-28"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Bonus Exhibition bookings page by page",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/exhibition-bookings/page?page=0&size=5&sort=exhibitionDate,asc",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-bookings",
+                "page"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "5"
+                },
+                {
+                  "key": "sort",
+                  "value": "exhibitionDate,asc"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ExhibitionHall",
+      "item": [
+        {
+          "name": "A2 Post Exhibition Hall",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"hallNumber\": 4,\n    \"name\": \"Painting hall\"   \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/api/exhibition-halls/save",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-halls",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Get all Exhibition Hall",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/exhibition-halls/all",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-halls",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Get by Exhibition Hall",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/exhibition-halls/63c2b7db-0073-4414-8b3e-e86f861968cd",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-halls",
+                "63c2b7db-0073-4414-8b3e-e86f861968cd"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Update by Exhibition Hall",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Scupture hall\"   \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/api/exhibition-halls/update/92b494bf-a1b7-4fbc-aee5-e70a599bed2e",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-halls",
+                "update",
+                "92b494bf-a1b7-4fbc-aee5-e70a599bed2e"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 Delete by Exhibition Hall",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/exhibition-halls/delete/92b494bf-a1b7-4fbc-aee5-e70a599bed2e",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-halls",
+                "delete",
+                "92b494bf-a1b7-4fbc-aee5-e70a599bed2e"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "C2 Get  Free exhibition halls",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/exhibition-halls/free",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "exhibition-halls",
+                "free"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "DisplayedArtwork",
+      "item": [
+        {
+          "name": "E1 Post save displayed artwork",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"title\": \"Hills of Musanze\",\n    \"description\": \"Acrylic on canvas, 80 by 60 cm\",\n    \"priceRwf\": 350000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/api/displayed-artworks/save?exhibitionBookingId=31a759f4-4e6c-4d61-87ad-67c8d3933499",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "displayed-artworks",
+                "save"
+              ],
+              "query": [
+                {
+                  "key": "exhibitionBookingId",
+                  "value": "31a759f4-4e6c-4d61-87ad-67c8d3933499"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "E2 Get Displayed artwork history of an artist by artist code",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/displayed-artworks/artist/ART-0002",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "displayed-artworks",
+                "artist",
+                "ART-0002"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "E3 Delete displayed artwork",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/displayed-artworks/delete/31a759f4-4e6c-4d61-87ad-67c8d3933499",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "displayed-artworks",
+                "delete",
+                "31a759f4-4e6c-4d61-87ad-67c8d3933499"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Bonus Get Art Gallery Management dashboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8000/api/dashboard/summary",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "dashboard",
+                "summary"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
