@@ -16,7 +16,7 @@
 
 The **Art Gallery Management** backend system organizes how a gallery exhibits the work of local artists. It handles artist proposals, curator assignments, exhibition hall management, specialized art styles, dated bookings with status flows (PROPOSED, ACCEPTED, EXHIBITED, DECLINED), and catalogued displayed artworks once an exhibition takes place.
 
-Built using **Spring Boot**, **Spring Data JPA**, and **PostgreSQL**[cite: 1].
+Built using **Spring Boot**, **Spring Data JPA**, and **PostgreSQL**.
 
 ---
 
@@ -107,5 +107,5 @@ Here is the comprehensive table containing all the API endpoints required across
 | **E3**         | `DELETE`            | `/api/exhibition-bookings/delete/{id}`                       | Delete a booking (protected if it contains displayed artworks)                                           |
 | **F1**         | `GET`               | `/api/exhibition-bookings/stats/by-status`                   | Get exhibition booking statistics grouped by status with counts                                          |
 | **F2**         | `PATCH`             | `/api/exhibition-bookings/cancel-day?curatorId=...&date=...` | Bulk cancel a curator's schedule on a given day (sets to`DECLINED`)                                    |
-| **Bonus (+5)** | `GET`               | `/api/dashboard/summary`                                     | Retrieve a dashboard JSON object with total counts and metrics                                           |
-| **Bonus (+5)** | `GET`               | `/api/exhibition-bookings/page?page=...&size=...&sort=...`   | Retrieve a paginated and sorted list of exhibition bookings                                              |
+| **Bonus** | `GET`               | `/api/dashboard/summary`                                     | Retrieve a dashboard JSON object with total counts and metrics                                           |
+| **Bonus** | `GET`               | `/api/exhibition-bookings/page?page=...&size=...&sort=...`   | Retrieve a paginated and sorted list of exhibition bookings                                              |
